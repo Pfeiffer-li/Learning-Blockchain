@@ -1,4 +1,4 @@
-本知识文章主要参考书籍：Rust权威指南。是我本人学习时的大致过程；第一章主要是介绍Rust：后续在补充；第二章主要是举个猜数游戏的Rust小游戏，也是后续在补充！！！
+本知识文章主要参考书籍：《Rust权威指南》。是我本人学习时的大致过程；第一章主要是介绍Rust：后续在补充；第二章主要是举个猜数游戏的Rust小游戏，也是后续在补充！！！
 
 # 第三章
 ##  第一节 变量与可变性
@@ -49,4 +49,21 @@ fun main(){
 
 **二、复合数据类型**（元组、数组）
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、元组（Tuple）：类似与Python的元组，长度固定，不可变，且可以存放多个不同数据类型的数据。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、元组（Tuple）：**长度固定，不可变**，且可**以存放多个不同数据类型的数据**。
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 获取元组里面的数据的方法：
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) 解构法：`let tup = (500, 6.4, "a"); let (a, b, c) = tup;`；
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) 通过索引并使用 `.` 号：`lex tup = (500, 6.4, "a"); let x = tup.1;`。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、数组：同Tuple有点类似，**长度固定不可变**；但是有一个不同：**只能存放相同类型的数据**。
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 数组的用处：**一般是想要再栈上而不是堆上为数据分配内存空间；或者想要保留固定数量的元素时**。
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 标准库的Vector：**Vector俗称动态数组；长度可变**；一般用的比较多！！！
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 数组在定义时候的类型表示：`let a: [i32; 5] = [1, 2, 3, 4, 5];` **前面表示数组中元素的数据类型，分号后表示的是元素的个数**。
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申明数组的方式：(需要注意第三点的申明方式，可以用于一些算法题的初始化)
+```
+1、let a = [1, 2, 3, 4, 5];
+2、let a: [i32, 5] = [1, 2, 3, 4, 5];
+3、let a = [3, 5];    // 它的打印结果是这样的 [3, 3, 3, 3, 3]
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 访问数组的元素：同C语言是一样的，使用中括号：`a[0]`，数组下标也是从0开始的。
+
+
