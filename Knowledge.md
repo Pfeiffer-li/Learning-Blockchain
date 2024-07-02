@@ -48,3 +48,5 @@ fun main(){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4) 字符类型：char，表示值的时候用**单引号**括起来；占用空间是4字节大小，与C语言的几乎相似的处理。
 
 **二、复合数据类型**（元组、数组）
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、元组（Tuple）：类似与Python的元组，长度固定，不可变，且可以存放多个不同数据类型的数据。
