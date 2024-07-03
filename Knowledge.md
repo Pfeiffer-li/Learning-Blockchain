@@ -66,4 +66,32 @@ fun main(){
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 访问数组的元素：同C语言是一样的，使用中括号：`a[0]`，数组下标也是从0开始的。
 
+## 第三节 函数
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1、区分语句以及表达式：语句是结尾包含一个分号，包括**let申明**；表达式是**结尾没有分号**，或者**调用宏**是表达式，**也包括用花括号{}括起来的一段代码，这段代码最后一个代码是不用分号结尾的，那这一段花括号也就是表达式，如果花括号括起来的最后一个式子是分号结尾，那么这个花括号是一个语句，函数因为是花括号括起来的，所以也同理**。
+```
+举个例子
+fn main() {
+    let x = 5;
+    let y = {
+        let x = 1;
+        x + 3  // 如果花括号以这个结尾，这里就表示这个花括号是个表达式，所以可以把这个花括号的结果赋值给y
+        /*x + 3;    // 如果花括号以这个结尾，这里就表示这个花括号是个语句，这里就不能赋值给y*/
+    }
+}
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2、参数：同样跟别的语言一样有形参和实参；
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3、函数的返回值：
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 一般会在申明函数的后面添加 `->`指明函数的返回值类型，但是不可以为返回值命名；
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 在Rust里面一般默认最后一个表达式的值是函数的返回值，想要提前返回也可以用return。
+```
+fn add_five(x: i32) -> i32 {
+    x + 5
+}
+
+fn main() {
+    let x = 7;
+    let y = add_five(x);
+    println!("The value of y is {}", y);        // 这里会打印出值为12
+}
+```
 
