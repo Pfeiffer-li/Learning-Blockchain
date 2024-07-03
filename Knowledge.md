@@ -67,7 +67,7 @@ fun main(){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 访问数组的元素：同C语言是一样的，使用中括号：`a[0]`，数组下标也是从0开始的。
 
 ## 第三节 函数
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1、区分语句以及表达式：语句是结尾包含一个分号，包括**let申明**；表达式是**结尾没有分号**，或者**调用宏**是表达式，**也包括用花括号{}括起来的一段代码，这段代码最后一个代码是不用分号结尾的，那这一段花括号也就是表达式，如果花括号括起来的最后一个式子是分号结尾，那么这个花括号是一个语句，函数因为是花括号括起来的，所以也同理**。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **一、区分语句以及表达式**：语句是结尾包含一个分号，包括**let申明**；表达式是**结尾没有分号**，或者**调用宏**是表达式，**也包括用花括号{}括起来的一段代码，这段代码最后一个代码是不用分号结尾的，那这一段花括号也就是表达式，如果花括号括起来的最后一个式子是分号结尾，那么这个花括号是一个语句，函数因为是花括号括起来的，所以也同理**。
 ```
 举个例子
 fn main() {
@@ -79,8 +79,8 @@ fn main() {
     }
 }
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2、参数：同样跟别的语言一样有形参和实参；
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3、函数的返回值：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **二、参数**：同样跟别的语言一样有形参和实参；
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **三、函数的返回值：**
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 一般会在申明函数的后面添加 `->`指明函数的返回值类型，但是不可以为返回值命名；
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 在Rust里面一般默认最后一个表达式的值是函数的返回值，想要提前返回也可以用return。
 ```
@@ -95,3 +95,27 @@ fn main() {
 }
 ```
 
+## 第四节 if..else..
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**1、条件**：同其他语言一样，if中的条件语句是bool类型；**一般如果如果过多的if else那么会用match重构！**，下面的例子一般就可以用match重构，等说到match的时候在具体解释！！
+```
+fn main(){
+    let number: i32 = 6;
+    if number % 4 == 0 {
+        println!("number is divisible by 4!");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3!");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2!");
+    } else {
+        println!("number is not divisible by 4, 3, 2!");
+    }
+}
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**2、在let语句中可以使用if**：需要及其注意：**如果用if else作为表达式，那么返回的值一定要是统一类型，因为Rust是强类型语言**。
+```
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };        // 如果这里的else返回的是 { "6" }，那么这个语句就会报错
+    println!("The value of number is {}", number);
+}
+```
