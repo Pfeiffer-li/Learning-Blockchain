@@ -232,7 +232,7 @@ println!("s1 = {}, s2 = {}", s1, s2);        //这里就不会报错
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那么有哪些数据是可以Copy，也就是有哪些**数据的值**是存放在栈中的呢？    **(1) 标量：整型、布尔、浮点、字符；(2) 或者是数据类型都是标量的元组也是存放在栈中的！**
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**栈中存储的指针的内容**：拿`String::from("Hello");` 为例：
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**(1)指针**： 存储了指向堆中**地址空间**的指针；
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**(1) 指针**： 存储了指向堆中**地址空间**的指针；
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**(2) 长度**：记录了当前String中文本**使用**了多少字节的内存；
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**(3) 容量**：记录String向操作系统总共**获取**到的内存字节数量。
 
