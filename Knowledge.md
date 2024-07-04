@@ -119,3 +119,48 @@ fn main() {
     println!("The value of number is {}", number);
 }
 ```
+## 第五节 循环
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;循环总共有三种：**loop循环，while循环以及for循环**。
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、**loop循环**：类似别的语言的死循环，有两种方式退出，① ctrl + c；② **使用退出条件加break，这里可以使用一个表达式返回loop循环返回的结果**。**loop循环经常用于需要不断去验证一个东西，比如重复循环验证键盘输入等**！
+```
+// 举个例子
+fn main() {
+    let mut count = 0;
+    let result = loop{
+        count += 1;
+        if count == 10 {
+            break count * 2;
+        }
+    };
+    println!("The value of result is {}", result);
+}
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、**while循环**：同别的语言类似，**经常用于有条件的循环**！
+```
+//举个例子
+fn main() {
+    let  mut count = 3;
+    while count != 0 {
+        println!("{}!", count);
+        count -= 1;
+    }
+    println!("LEFTOFF!");
+}
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三、**for循环**：经常用于遍历一些数据，比如遍历数组等；如果用while循环就会多index索引判断，既增长的代码，也增加了错误程度，并且变得不够灵活（如果数组内容变少，可能还需要改索引）。所以一般遍历都是用for。
+```
+// 举个例子
+fn main() {
+    let a = [10, 20, 30 ,40 ,50];
+    for element in a.iter(){
+        println!("the value if {}", element);
+    }
+}
+// 针对倒计时的例子也是可以的
+fn main() {
+    for number in (1..4).rev() {    // 这里的(1..4)是一个range，同Python中的range一样，rev是反转的意思：先遍历出3，然后2，然后1
+        println!("{}", number);
+    }
+    println!("LEFTOFF!");
+}
+```
