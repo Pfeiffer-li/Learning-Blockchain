@@ -1,5 +1,39 @@
 本知识文章主要参考书籍：《Rust权威指南》。是我本人学习时的大致过程；第一章主要是介绍Rust：后续在补充；第二章主要是举个猜数游戏的Rust小游戏，也是后续在补充！！！
+# 第二章
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先举一个简单的例子来显示Rust
+```
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
 
+fn main() {
+    println!("欢迎来到猜数游戏！")
+    let secret_number = rand::thread_rng().gen_range(1..101);
+
+    loop {
+        print("请你猜测一个1到100的整数！");
+        let mut guess = String::new();
+        io::stdin().read_line(&mut guess).expect("无法读取！");
+        let guess: u32 = math guess.trim().parse(){
+            Ok(num) => num,
+            Err(_) => {
+                println!("请输入正确的数字，而非英文字母！);
+                continue;
+            },
+        };
+        println!("你猜测的数是：{}", guess);
+
+        match guess.cmp(&secret_number){
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
+    }    
+}
+```
 # 第三章
 ##  第一节 变量与可变性
 **一、针对常量的介绍：**<br>
