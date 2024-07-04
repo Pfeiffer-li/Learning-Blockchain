@@ -14,7 +14,7 @@ fn main() {
         print("请你猜测一个1到100的整数！");
         let mut guess = String::new();
         io::stdin().read_line(&mut guess).expect("无法读取！");
-        let guess: u32 = math guess.trim().parse(){
+        let guess: u32 = match guess.trim().parse(){
             Ok(num) => num,
             Err(_) => {
                 println!("请输入正确的数字，而非英文字母！);
